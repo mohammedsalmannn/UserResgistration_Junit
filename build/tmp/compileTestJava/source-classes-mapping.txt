@@ -1,0 +1,4 @@
+com/bridgelabz/UserRegistrationTest.java
+ com.bridgelabz.UserRegistrationTest
+com/bridgelabz/com/bridgelabz/EmailValidator.java
+ com.bridgelabz.com.bridgelabz.EmailValidator
