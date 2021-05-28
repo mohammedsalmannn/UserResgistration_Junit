@@ -32,12 +32,12 @@ public class EmailValidator {
 
     @Test
     public void emailChecker() {
-        boolean result = u1.giveEmail_AsTrue_When_its_Valid(email);
+        boolean result = u1.ValidEmail(email);
         Assert.assertEquals(this.status,result);
     }
     @Test
     public void emailChecker1() {
-        boolean result = u1.giveEmail_AsFalse_When_its_Valid(email);
+        boolean result = u1.InvalidEmail(email);
         Assert.assertEquals(this.status,result);
     }
 }
