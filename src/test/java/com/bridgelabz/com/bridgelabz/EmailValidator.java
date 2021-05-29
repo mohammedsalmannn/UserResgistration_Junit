@@ -1,9 +1,11 @@
 package com.bridgelabz.com.bridgelabz;
 
+import com.bridgelabz.UserExcpect;
 import com.bridgelabz.UserRegistration;
 import com.bridgelabz.UserRegistrationTest;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -23,21 +25,38 @@ public class EmailValidator {
     }
     @Parameterized.Parameters
     public static Collection input(){
-        return Arrays.asList(new Object[][]{{"abc@gmail.com", false},
-                                            { "rmdsalman001@gmail.com", false  },
-                                            { "1rmdsalman001@gmail.com",true  }
+        return Arrays.asList(new Object[][]{{"abc@gmail.com", true},
+                                            { "rmdsalman001@gmail.com", true  },
+                                            { "1rmdsalman001@gmail.com",false  }
 
          });
     }
 
     @Test
     public void emailChecker() {
-        boolean result = u1.ValidEmail(email);
-        Assert.assertEquals(this.status,result);
+        boolean result = false;
+        try {
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(UserExcpect.class);
+            result = u1.ValidEmail(email);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.assertEquals(this.status,result);
+        }
+
     }
     @Test
     public void emailChecker1() {
-        boolean result = u1.InvalidEmail(email);
-        Assert.assertEquals(this.status,result);
+        boolean result = false;
+        try {
+            ExpectedException exception = ExpectedException.none();
+            exception.expect(UserExcpect.class);
+            result = u1.InvalidEmail(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.assertEquals(this.status,result);
+        }
+
     }
 }

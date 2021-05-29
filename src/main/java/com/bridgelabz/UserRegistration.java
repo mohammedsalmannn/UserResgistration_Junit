@@ -12,33 +12,59 @@ public class UserRegistration {
 
     }
     // Name method
-    public boolean validatName(String name) {
+    public boolean validatName(String name)  throws UserExcpect {
        // return (Pattern.matches(NamePattern, name));
-        Pattern pattern = Pattern.compile(EmailParttern);
-        Matcher matcher = pattern.matcher(name);
-                return matcher.find();
+       try {
+           Pattern pattern = Pattern.compile(NamePattern);
+
+           Matcher matcher = pattern.matcher(name);
+           return matcher.find();
+       }catch (NullPointerException e){
+           throw new UserExcpect("Enter the Valid Message");
+       }
     }
-    public boolean ValidEmail (String email){
-        Pattern pattern = Pattern.compile(NamePattern);
+    public boolean ValidEmail (String email) throws UserExcpect{
+        try {
+            Pattern pattern = Pattern.compile(NamePattern);
+
         Matcher matcher = pattern.matcher(email);
         return matcher.find();
+    }catch (Exception e){
+            throw new UserExcpect("Enter Valid Email");
+        }
     }
 
-    public boolean InvalidEmail(String email) {
-        Pattern pattern = Pattern.compile(NamePattern);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.find();
+    public boolean InvalidEmail(String email) throws UserExcpect{
+        try {
+            Pattern pattern = Pattern.compile(NamePattern);
+
+            Matcher matcher = pattern.matcher(email);
+            return matcher.find();
+        }catch (Exception e)
+        {
+            throw new UserExcpect("Your Email is InValid");
+        }
     }
 
-    public boolean MobileParttern(String mobile) {
-        Pattern pattern = Pattern.compile(MobileParttern);
-        Matcher matcher = pattern.matcher(mobile);
-        return matcher.find();
+    public boolean MobileParttern(String mobile) throws UserExcpect{
+       try {
+           Pattern pattern = Pattern.compile(MobileParttern);
+
+           Matcher matcher = pattern.matcher(mobile);
+           return matcher.find();
+       }catch (Exception e){
+           throw new UserExcpect("Invalid Mobile");
+       }
     }
-    public boolean PassWordParttern(String password) {
-        Pattern pattern = Pattern.compile(PassWordParttern);
-        Matcher matcher = pattern.matcher(password);
-        return matcher.find();
+    public boolean PassWordParttern(String password) throws UserExcpect{
+        try {
+            Pattern pattern = Pattern.compile(PassWordParttern);
+
+            Matcher matcher = pattern.matcher(password);
+            return matcher.find();
+        }catch (Exception e){
+            throw new UserExcpect("Enter a Valid Password");
+        }
     }
 }
 
