@@ -8,6 +8,7 @@ public class UserRegistration {
     String EmailParttern = "^[a-z][0-9A-Za-z]+([-_+.][0-9A-Za-z]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
     String MobileParttern = "^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$";
     String PassWordParttern = "[*.! @#$%^&(){}[]:;<>,.?/~_+-=|\\]]]";
+
     public static void main(String[] args) {
 
     }
@@ -25,7 +26,7 @@ public class UserRegistration {
     }
     public boolean ValidEmail (String email) throws UserExcpect{
         try {
-            Pattern pattern = Pattern.compile(NamePattern);
+            Pattern pattern = Pattern.compile(EmailParttern);
 
         Matcher matcher = pattern.matcher(email);
         return matcher.find();
@@ -36,7 +37,7 @@ public class UserRegistration {
 
     public boolean InvalidEmail(String email) throws UserExcpect{
         try {
-            Pattern pattern = Pattern.compile(NamePattern);
+            Pattern pattern = Pattern.compile(EmailParttern);
 
             Matcher matcher = pattern.matcher(email);
             return matcher.find();

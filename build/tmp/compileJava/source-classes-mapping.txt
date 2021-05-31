@@ -2,3 +2,5 @@ com/bridgelabz/UserExcpect.java
  com.bridgelabz.UserExcpect
 com/bridgelabz/UserRegistration.java
  com.bridgelabz.UserRegistration
+com/bridgelabz/LamdaDemo.java
+ com.bridgelabz.LamdaDemo
